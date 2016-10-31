@@ -42,7 +42,7 @@ class Book
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="book")
+     * @ORM\ManyToOne(targetEntity="Book", inversedBy="book")
      */
     protected $category;
     /**
@@ -222,28 +222,5 @@ class Book
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Set category
-     *
-     * @param \AdminBundle\Entity\Book $category
-     * @return Book
-     */
-    public function setCategory(\AdminBundle\Entity\Book $category = null)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return \AdminBundle\Entity\Book 
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 }
