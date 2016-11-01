@@ -7,7 +7,7 @@ use AdminBundle\Entity\Category;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity()
  * @ORM\Table(name="book")
  */
 class Book
@@ -43,8 +43,11 @@ class Book
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="book")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     protected $category;
+
+
     /**
      * Get id
      *
@@ -56,26 +59,26 @@ class Book
     }
 
     /**
-     * Set nameBook
+     * Set title
      *
-     * @param string $name
+     * @param string $title
      * @return Book
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        $this->name= $name;
+        $this->title = $title;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get title
      *
      * @return string 
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->name;
+        return $this->title;
     }
 
     /**
@@ -148,89 +151,12 @@ class Book
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category_id = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add category_id
-     *
-     * @param \AdminBundle\Entity\Category $categoryId
-     * @return Book
-     */
-    public function addCategoryId(\AdminBundle\Entity\Category $categoryId)
-    {
-        $this->category_id[] = $categoryId;
-
-        return $this;
-    }
-
-    /**
-     * Remove category_id
-     *
-     * @param \AdminBundle\Entity\Category $categoryId
-     */
-    public function removeCategoryId(\AdminBundle\Entity\Category $categoryId)
-    {
-        $this->category_id->removeElement($categoryId);
-    }
-
-    /**
-     * Get category_id
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCategoryId()
-    {
-        return $this->category_id;
-    }
-
-    /**
-     * Set category_id
-     *
-     * @param \AdminBundle\Entity\Book $categoryId
-     * @return Book
-     */
-    public function setCategoryId(\AdminBundle\Entity\Book $categoryId = null)
-    {
-        $this->category_id = $categoryId;
-
-        return $this;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Book
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
      * Set category
      *
-     * @param \AdminBundle\Entity\Book $category
+     * @param \AdminBundle\Entity\Category $category
      * @return Book
      */
-    public function setCategory(\AdminBundle\Entity\Book $category = null)
+    public function setCategory(\AdminBundle\Entity\Category $category = null)
     {
         $this->category = $category;
 
@@ -240,7 +166,7 @@ class Book
     /**
      * Get category
      *
-     * @return \AdminBundle\Entity\Book 
+     * @return \AdminBundle\Entity\Category 
      */
     public function getCategory()
     {

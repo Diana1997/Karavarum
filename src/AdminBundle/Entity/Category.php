@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity()
  * @ORM\Table(name="category")
  */
 class Category
@@ -26,12 +26,22 @@ class Category
     protected $name;
 
     /**
-     *@ORM\OneToMany(targetEntity="Category", mappedBy="book")
+     *@ORM\OneToMany(targetEntity="Book", mappedBy="category")
      */
-    protected $book_id;
+    protected $book;
 
     /**
-     * @return mixed
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->book = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
      */
     public function getId()
     {
@@ -39,15 +49,22 @@ class Category
     }
 
     /**
-     * @param mixed $id
+     * Set name
+     *
+     * @param string $name
+     * @return Category
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->id = $id;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
-     * @return mixed
+     * Get name
+     *
+     * @return string 
      */
     public function getName()
     {
@@ -55,78 +72,35 @@ class Category
     }
 
     /**
-     * @param mixed $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBookId()
-    {
-        return $this->book_id;
-    }
-
-    /**
-     * @param mixed $book_id
-     */public function setBookId($book_id)
-{
-    $this->book_id = $book_id;
-}
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->book_id = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add book_id
+     * Add book
      *
-     * @param \AdminBundle\Entity\Category $bookId
+     * @param \AdminBundle\Entity\Book $book
      * @return Category
      */
-    public function addBookId(\AdminBundle\Entity\Category $bookId)
+    public function addBook(\AdminBundle\Entity\Book $book)
     {
-        $this->book_id[] = $bookId;
+        $this->book[] = $book;
 
         return $this;
     }
 
     /**
-     * Remove book_id
+     * Remove book
      *
-     * @param \AdminBundle\Entity\Category $bookId
+     * @param \AdminBundle\Entity\Book $book
      */
-    public function removeBookId(\AdminBundle\Entity\Category $bookId)
+    public function removeBook(\AdminBundle\Entity\Book $book)
     {
-        $this->book_id->removeElement($bookId);
+        $this->book->removeElement($book);
     }
 
     /**
-     * Set category
+     * Get book
      *
-     * @param string $category
-     * @return Category
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function setCategory($category)
+    public function getBook()
     {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return string 
-     */
-    public function getCategory()
-    {
-        return $this->category;
+        return $this->book;
     }
 }
