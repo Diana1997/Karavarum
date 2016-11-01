@@ -3,6 +3,8 @@
 namespace AdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity
@@ -11,21 +13,32 @@ use Doctrine\ORM\Mapping as ORM;
 class File
 {
     /**
-     * @ORM\Column(type="integer")
      * @ORM\Id
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
-
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\File(
+     *     maxSize = "1024k",
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Please upload a valid PDF"
+     * )
+     */
+    protected $name;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $path;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Book")
+     */
+    protected $book;
+
+
 }

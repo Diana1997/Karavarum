@@ -19,6 +19,10 @@ class BookAdmin extends Admin
         ->add('author', 'text')
         ->add('edition', 'number')
         ->add('place', 'text')
+            ->add('path', 'file',array(
+                'required' => false,
+                'data_class' => null,
+            ))
             ->end()
        // ->add('name', 'entity', array('class' => 'AdminBundle\Entity\Category'));*/
 
@@ -35,7 +39,8 @@ class BookAdmin extends Admin
         $datagridMapper->add('title')
             ->add('author')
             ->add('edition')
-            ->add('place');
+            ->add('place')
+        ->add('path');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -45,6 +50,7 @@ class BookAdmin extends Admin
             ->add('author')
             ->add('edition')
             ->add('place')
+            ->add('path')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
