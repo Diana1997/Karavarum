@@ -19,9 +19,9 @@ class BookAdmin extends Admin
         ->add('author', 'text')
         ->add('edition', 'number')
         ->add('place', 'text')
-            ->add('path', 'file',array(
+            ->add('file', 'file',array(
                 'required' => false,
-                'data_class' => null,
+                //'data_class' => null,
             ))
             ->end()
        // ->add('name', 'entity', array('class' => 'AdminBundle\Entity\Category'));*/
@@ -60,6 +60,15 @@ class BookAdmin extends Admin
                 )
             ))
         ;
+    }
+
+    /**
+     * @param mixed $object
+     * @return mixed|void
+     */
+    public function prePersist($object)
+    {
+        $object->upload();
     }
 
 }

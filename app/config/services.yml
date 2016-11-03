@@ -16,8 +16,3 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: 'content', label: Category }
 
-    #admin.file:
-       # class: AdminBundle\Entity\DocumentAdmin
-       # arguments: [~, AdminBundle\Entity\Document, ~]
-      #  tags:
-      #      - { name: sonata.admin, manager_type: orm, group: 'content', label: File }

@@ -44,12 +44,6 @@ class Book
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
-     * @Assert\File(
-     *     maxSize = "1024M",
-     *     mimeTypes = {"application/pdf", "application/x-pdf"},
-     *     mimeTypesMessage = "Please upload a valid PDF"
-     * )
      */
     protected $path;
 
@@ -231,8 +225,14 @@ class Book
 
     /**
      * @Assert\File(maxSize="600000000")
+     * @Assert\NotBlank
+     * @Assert\File(
+     *     maxSize = "10240M",
+     *     mimeTypes = {"application/pdf", "application/x-pdf"},
+     *     mimeTypesMessage = "Please upload a valid PDF"
+     * )
      */
-    private $file;
+    protected $file;
 
     /**
      * Sets file.
@@ -254,6 +254,10 @@ class Book
         return $this->file;
     }
 
+
+    /**
+     * @ORM\PrePersist
+     */
     public function upload()
     {
         // the file property can be empty if the field is not required
@@ -267,6 +271,7 @@ class Book
         // move takes the target directory and then the
         // target filename to move to
         $this->getFile()->move(
+           // __DIR__.'/../../../web/uploads/documents/',
             $this->getUploadRootDir(),
             $this->getFile()->getClientOriginalName()
         );
