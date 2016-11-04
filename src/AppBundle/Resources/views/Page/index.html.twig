@@ -5,7 +5,15 @@
 {% block body %}
     <ul>
         {% for category in categories %}
-            <a href="{{ path('categorySlug', {'slug':category.categorySlug}) }}">{{ category.name }}</a>
+            <a href="{{ path('index', {'slug':category.id}) }}">{{ category.name }}</a>
         {% endfor %}
     </ul>
+
+    <div>
+        {% for book in books %}
+            <a href=""></a>
+            <p>{{book.title }}</p>
+
+            {% endfor %}
+    </div>
 {% endblock %}

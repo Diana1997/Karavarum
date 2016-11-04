@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AdminBundle\Entity\Repository\BookRepository")
  * @ORM\Table(name="book")
  */
 class Book
