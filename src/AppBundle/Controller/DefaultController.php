@@ -23,4 +23,15 @@ class DefaultController extends Controller
             "categories" => $categories,
         ));
     }
+
+    /**
+     * @Route("/{slug}", name="categorySlug")
+     */
+    public function menuAction($slug)
+    {
+        return $this->render("AppBundle:Menu:$slug.html.twig", array(
+            "slug" => $slug,
+        ));
+
+    }
 }

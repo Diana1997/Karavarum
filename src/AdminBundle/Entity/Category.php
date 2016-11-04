@@ -26,6 +26,12 @@ class Category
     protected $name;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    protected $categorySlug;
+
+
+    /**
      *@ORM\OneToMany(targetEntity="Book", mappedBy="category")
      */
     protected $book;
@@ -102,5 +108,21 @@ class Category
     public function getBook()
     {
         return $this->book;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategorySlug()
+    {
+        return $this->categorySlug;
+    }
+
+    /**
+     * @param mixed $categorySlug
+     */
+    public function setCategorySlug($categorySlug)
+    {
+        $this->categorySlug = $categorySlug;
     }
 }

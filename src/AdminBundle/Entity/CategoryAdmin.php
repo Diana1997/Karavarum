@@ -11,7 +11,8 @@ class CategoryAdmin extends Admin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text');
+        $formMapper->add('name', 'text')
+        ->add('categorySlug', 'text');
     }
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
@@ -20,6 +21,7 @@ class CategoryAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper->addIdentifier('name')
+            ->add('categorySlug')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
