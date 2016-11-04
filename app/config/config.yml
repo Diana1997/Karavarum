@@ -92,7 +92,7 @@ sonata_block:
                     contexts: [admin]
 
 sonata_admin:
-    title:     Admin Bundle
+    title:     Admin
     #title_logo:
     templates:
          search:    SonataAdminBundle:Core:search.html.twig

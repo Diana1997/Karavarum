@@ -8,11 +8,11 @@ services:
         class: AdminBundle\Entity\BookAdmin
         arguments: [~, AdminBundle\Entity\Book, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: 'content', label: Book }
+            - { name: sonata.admin, manager_type: orm, group: 'Content', label: Book }
 
     admin.category:
         class: AdminBundle\Entity\CategoryAdmin
         arguments: [~, AdminBundle\Entity\Category, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: 'content', label: Category }
+            - { name: sonata.admin, manager_type: orm, group: 'Content', label: Category }
 

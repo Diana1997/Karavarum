@@ -1,0 +1,11 @@
+{% extends "::base.html.twig"%}
+{% block title %}
+         Karavarum
+{% endblock %}
+{% block body %}
+    <ul>
+        {% for category in categories %}
+            <a href="">{{ category.name }}</a>
+        {% endfor %}
+    </ul>
+{% endblock %}
