@@ -26,4 +26,19 @@ class DefaultController extends Controller
             "books" => $books,
         ));
     }
+
+    /**
+     * @Route("/show/{slugBook}", name="show")
+     */
+    public function showAction($slugBook)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $path = $em->getRepository("AdminBundle:Book")->findPathByBookId($slugBook);
+       //print_r($path);
+       // exit;
+        return $this->render("AppBundle:Page:show.html.twig", array(
+            "paths" => $path,
+        ));
+
+    }
 }

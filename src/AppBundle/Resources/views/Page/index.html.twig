@@ -11,9 +11,9 @@
 
     <div>
         {% for book in books %}
-            <a href=""></a>
-            <p>{{book.title }}</p>
-
-            {% endfor %}
+            <a href="{{ path('show', {'slugBook': book.id})}}">
+                <p>{{book.title }}</p>
+            </a>
+        {% endfor %}
     </div>
 {% endblock %}

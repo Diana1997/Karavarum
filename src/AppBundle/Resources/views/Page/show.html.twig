@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('/bundles/app/css/show.css') }}"/>
+{% endblock %}
+
+{% block title %}
+    show
+{% endblock %}
+
+{% block body %}
+
+    {% for p in paths %}
+        <embed src="{{ asset('/uploads/documents/')}}{{ p.path }}" class="bookContent" type="application/pdf"></embed>
+    {% endfor %}
+{% endblock %}
