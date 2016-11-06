@@ -19,12 +19,18 @@ class BookAdmin extends Admin
         ->add('author', 'text')
         ->add('edition', 'number')
         ->add('place', 'text')
+            ->add('description', 'text')
+            ->add('quotation', 'text', array(
+                'required' => false,
+            ))
             ->add('file', 'file',array(
                 'required' => false,
                 //'data_class' => null,
             ))
+            ->add('image', 'file', array(
+                'required' => false,
+            ))
             ->end()
-       // ->add('name', 'entity', array('class' => 'AdminBundle\Entity\Category'));*/
 
        ->with('Meta data')
        ->add('category', 'sonata_type_model', array(
@@ -50,7 +56,7 @@ class BookAdmin extends Admin
             ->add('author')
             ->add('edition')
             ->add('place')
-            ->add('path')
+            ->add('description')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
@@ -69,6 +75,7 @@ class BookAdmin extends Admin
     public function prePersist($object)
     {
         $object->upload();
+        $object->uploadImage();
     }
 
 }

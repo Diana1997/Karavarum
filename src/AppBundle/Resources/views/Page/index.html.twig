@@ -11,8 +11,14 @@
 
     <div>
         {% for book in books %}
-            <a href="{{ path('show', {'slugBook': book.id})}}">
-                <p>{{book.title }}</p>
+            <p>{{ book.title }}</p>
+            <p>Հեղինակ {{ book.author }}</p>
+            <p>Լույս է տեսել {{ book.edition }} թ-ին, {{ book.place }}</p>
+            <p>{{ book.description }}</p>
+            <p>{{ book.quotation }}</p>
+            <img src="{{ asset('uploads/images/') }}{{ book.srcImage }}" />
+            <a href="{{ path('show', {'slugBook': book.id})}}" target="_blank">
+                <p>Կարդալ</p>
             </a>
         {% endfor %}
     </div>
