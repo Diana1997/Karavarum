@@ -5,7 +5,7 @@ namespace AdminBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AdminBundle\Entity\Repository\QuotationRepository")
  * @ORM\Table(name="quotation")
  */
 class Quotation
@@ -59,5 +59,28 @@ class Quotation
     public function getQuotation()
     {
         return $this->quotation;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AdminBundle\Entity\Category $category
+     * @return Quotation
+     */
+    public function setCategory(\AdminBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AdminBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

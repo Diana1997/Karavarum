@@ -23,12 +23,13 @@
                 <p>Կարդալ</p>
             </a>
         {% endfor %}
+        {{ knp_pagination_render(books) }}
     </div>
 
     {# quotation #}
     <div>
         {% for q in quotations %}
-            <span>{{ q.quotation}}</span>
+            <span>{{ q.quotation}} <br></span>
         {% endfor %}
     </div>
 {% endblock %}

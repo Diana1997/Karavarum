@@ -49,10 +49,8 @@ trait File
 
 
     /**
-     * @Assert\File(maxSize="600000000")
      * @Assert\NotBlank
      * @Assert\File(
-     *     maxSize = "1024Mi",
      *     mimeTypes = {"application/pdf", "application/x-pdf"},
      *     mimeTypesMessage = "Please upload a valid PDF"
      * )

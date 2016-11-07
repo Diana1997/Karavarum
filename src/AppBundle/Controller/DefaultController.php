@@ -16,15 +16,21 @@ class DefaultController extends Controller
     * @Route("/index/{slug}", defaults={"slug"="1"}, name="index")
     * @Template()
     */
-    public function indexAction($slug)
+    public function indexAction($slug, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository("AdminBundle:Category")->findAll();
         $books = $em->getRepository("AdminBundle:Book")->findBookByCategoryId($slug);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($books, $this->get('request')->query->get('page', 1), 2);
+
+
+
+
         $quotations = $em->getRepository("AdminBundle:Quotation")->findQuotationByCategoryId($slug);
         return $this->render("AppBundle:Page:index.html.twig", array(
             "categories" => $categories,
-            "books" => $books,
+            "books" => $pagination,
             "quotations" => $quotations,
         ));
     }

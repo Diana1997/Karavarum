@@ -57,6 +57,7 @@ class BookAdmin extends Admin
             ->add('edition')
             ->add('place')
             ->add('description')
+            ->add('quotation')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
