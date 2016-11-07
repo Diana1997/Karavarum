@@ -21,9 +21,11 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository("AdminBundle:Category")->findAll();
         $books = $em->getRepository("AdminBundle:Book")->findBookByCategoryId($slug);
+        $quotations = $em->getRepository("AdminBundle:Quotation")->findQuotationByCategoryId($slug);
         return $this->render("AppBundle:Page:index.html.twig", array(
             "categories" => $categories,
             "books" => $books,
+            "quotations" => $quotations,
         ));
     }
 

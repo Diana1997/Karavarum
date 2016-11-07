@@ -3,12 +3,14 @@
          Karavarum
 {% endblock %}
 {% block body %}
+    {# menu #}
     <ul>
         {% for category in categories %}
             <a href="{{ path('index', {'slug':category.id}) }}">{{ category.name }}</a>
         {% endfor %}
     </ul>
 
+    {# books #}
     <div>
         {% for book in books %}
             <p>{{ book.title }}</p>
@@ -20,6 +22,13 @@
             <a href="{{ path('show', {'slugBook': book.id})}}" target="_blank">
                 <p>Կարդալ</p>
             </a>
+        {% endfor %}
+    </div>
+
+    {# quotation #}
+    <div>
+        {% for q in quotations %}
+            <span>{{ q.quotation}}</span>
         {% endfor %}
     </div>
 {% endblock %}

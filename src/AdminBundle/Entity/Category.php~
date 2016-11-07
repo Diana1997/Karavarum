@@ -31,6 +31,11 @@ class Category
     protected $book;
 
     /**
+     *@ORM\OneToMany(targetEntity="Quotation", mappedBy="category")
+     */
+    protected $quotation;
+
+    /**
      * Constructor
      */
     public function __construct()

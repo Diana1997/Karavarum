@@ -43,6 +43,15 @@ class Book
      */
     protected $place;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="text",  nullable=true)
+     */
+    protected $quotation;
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="book")
@@ -177,4 +186,38 @@ class Book
     {
         return $this->category;
     }
+
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuotation()
+    {
+        return $this->quotation;
+    }
+
+    /**
+     * @param mixed $quotation
+     */
+    public function setQuotation($quotation)
+    {
+        $this->quotation = $quotation;
+    }
+
 }
