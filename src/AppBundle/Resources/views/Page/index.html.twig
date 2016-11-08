@@ -1,35 +1,48 @@
 {% extends "::base.html.twig"%}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('/bundles/app/css/index.css') }}"/>
+{% endblock %}
+
 {% block title %}
          Karavarum
 {% endblock %}
 {% block body %}
-    {# menu #}
-    <ul>
-        {% for category in categories %}
-            <a href="{{ path('index', {'slug':category.id}) }}">{{ category.name }}</a>
-        {% endfor %}
-    </ul>
+    <div class="content">
+        <div>
+            <img src="{{ asset('/imageStyle/book.jpg') }}" class="img-header" alt="image"/>
+        </div>
+        <p class="p1-header">Մարդը ստեղծված է այն գրքերից, որոնք կարդացել է։</p>
+        <p class="p2-header">Ռալֆ Էմերսոն</p>
+        {# menu #}
+        <ul class="menu-content">
+            {% for category in categories %}
+                <a href="{{ path('index', {'slug':category.id}) }}">{{ category.name }}</a>
+            {% endfor %}
+        </ul>
 
-    {# books #}
-    <div>
-        {% for book in books %}
-            <p>{{ book.title }}</p>
-            <p>Հեղինակ {{ book.author }}</p>
-            <p>Լույս է տեսել {{ book.edition }} թ-ին, {{ book.place }}</p>
-            <p>{{ book.description }}</p>
-            <p>{{ book.quotation }}</p>
-            <img src="{{ asset('uploads/images/') }}{{ book.srcImage }}" />
-            <a href="{{ path('show', {'slugBook': book.id})}}" target="_blank">
-                <p>Կարդալ</p>
-            </a>
-        {% endfor %}
-        {{ knp_pagination_render(books) }}
+        {# books #}
+        <div>
+            {% for book in books %}
+                <p>{{ book.title }}</p>
+                <p>Հեղինակ {{ book.author }}</p>
+                <p>Լույս է տեսել {{ book.edition }} թ-ին, {{ book.place }}</p>
+                <p>{{ book.description }}</p>
+                <p>{{ book.quotation }}</p>
+                <img src="{{ asset('uploads/images/') }}{{ book.srcImage }}" />
+                <a href="{{ path('show', {'slugBook': book.id})}}" target="_blank">
+                    <p>Կարդալ</p>
+                </a>
+            {% endfor %}
+            {{ knp_pagination_render(books) }}
+        </div>
+
+        {# quotation #}
+        <div>
+            {% for f in facts %}
+                <p>{{ f.fact}} </p>
+            {% endfor %}
+        </div>
     </div>
 
-    {# quotation #}
-    <div>
-        {% for q in quotations %}
-            <span>{{ q.quotation}} <br></span>
-        {% endfor %}
-    </div>
 {% endblock %}

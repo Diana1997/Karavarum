@@ -30,10 +30,7 @@ class Category
      */
     protected $book;
 
-    /**
-     *@ORM\OneToMany(targetEntity="Quotation", mappedBy="category")
-     */
-    protected $quotation;
+
 
     /**
      * Constructor
@@ -110,28 +107,6 @@ class Category
     }
 
 
-    /**
-     * Add quotation
-     *
-     * @param \AdminBundle\Entity\Quotation $quotation
-     * @return Category
-     */
-    public function addQuotation(\AdminBundle\Entity\Quotation $quotation)
-    {
-        $this->quotation[] = $quotation;
-
-        return $this;
-    }
-
-    /**
-     * Remove quotation
-     *
-     * @param \AdminBundle\Entity\Quotation $quotation
-     */
-    public function removeQuotation(\AdminBundle\Entity\Quotation $quotation)
-    {
-        $this->quotation->removeElement($quotation);
-    }
 
     /**
      * Get quotation

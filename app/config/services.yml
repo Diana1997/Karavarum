@@ -16,8 +16,8 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: 'Content', label: Category }
 
-    admin.quotation:
-        class: AdminBundle\Entity\QuotationAdmin
-        arguments: [~, AdminBundle\Entity\Quotation, ~]
+    admin.fact:
+        class: AdminBundle\Entity\FactAdmin
+        arguments: [~, AdminBundle\Entity\Fact, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: 'Content', label: Quotation }
+            - { name: sonata.admin, manager_type: orm, group: 'Content', label: Fact }
