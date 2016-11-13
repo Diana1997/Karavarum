@@ -9,7 +9,7 @@
 {% endblock %}
 {% block body %}
     <div class="content">
-        <div>
+        <div class="div-image-header">
             <img src="{{ asset('/imageStyle/book.jpg') }}" class="img-header" alt="image"/>
         </div>
         <p class="p1-header">Մարդը ստեղծված է այն գրքերից, որոնք կարդացել է։</p>
@@ -17,24 +17,38 @@
         {# menu #}
         <ul class="menu-content">
             {% for category in categories %}
-                <a href="{{ path('index', {'slug':category.id}) }}">{{ category.name }}</a>
+                <a href="{{ path('index', {'slug':category.id}) }}" class="a-menu">{{ category.name }}</a>
             {% endfor %}
         </ul>
 
         {# books #}
-        <div>
+        <div class="div-book">
             {% for book in books %}
-                <p>{{ book.title }}</p>
-                <p>Հեղինակ {{ book.author }}</p>
-                <p>Լույս է տեսել {{ book.edition }} թ-ին, {{ book.place }}</p>
-                <p>{{ book.description }}</p>
-                <p>{{ book.quotation }}</p>
-                <img src="{{ asset('uploads/images/') }}{{ book.srcImage }}" />
-                <a href="{{ path('show', {'slugBook': book.id})}}" target="_blank">
-                    <p>Կարդալ</p>
-                </a>
+                <div class="div-one-book">
+                    <div class="div-image-book">
+                        <img src="{{ asset('uploads/images/') }}{{ book.srcImage }}"  class="img-book" alt="bookImage"/>
+                    </div>
+                    <div class="div-text">
+                        <p class="p-title">{{ book.title }}</p>
+                        <p class="p-author">
+                           <span class="span-author"> Հեղինակ`</span>
+                             {{ book.author }}
+                        </p>
+                        <p class="p-edition-place">
+                            <span class="span-edition-place">Լույս է տեսել`</span>
+                            {{ book.edition }} թ-ին, {{ book.place }}
+                        </p>
+                        <p class="p-description">{{ book.description }}</p>
+                        <p class="p-quotation">{{ book.quotation }}</p>
+                   </div>
+
+
+                    <a href="{{ path('show', {'slugBook': book.id})}}" target="_blank" class="a-read">
+                        <p class="p-read">Կարդալ</p>
+                    </a>
+                </div>
             {% endfor %}
-            {{ knp_pagination_render(books) }}
+            <span class="pages">{{ knp_pagination_render(books) }}</span>
         </div>
 
         {# quotation #}
