@@ -45,8 +45,8 @@ class BookAdmin extends Admin
         $datagridMapper->add('title')
             ->add('author')
             ->add('edition')
-            ->add('place')
-        ->add('path');
+            ->add('place');
+
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -57,12 +57,12 @@ class BookAdmin extends Admin
             ->add('edition')
             ->add('place')
             ->add('description')
-            ->add('quotation')
+          //  ->add('quotation')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
                     'delete' => array(),
-                    'show' => array(),
+                    //'show' => array(),
                     //'shortCat' => array('template' =>'AppBundle:CRUD:shortcut.html.twig')
                 )
             ))

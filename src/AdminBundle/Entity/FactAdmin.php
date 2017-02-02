@@ -24,7 +24,7 @@ class FactAdmin extends Admin
                 'actions' => array(
                     'edit' => array(),
                     'delete' => array(),
-                    'show' => array(),
+                    //'show' => array(),
                 )
             ));
     }

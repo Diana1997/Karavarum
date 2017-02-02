@@ -1,12 +1,22 @@
+body{
+    margin: 0px;
+}
 a{
     text-decoration: none;
 }
+.main{
+
+    background-color: #D6D6D6;
+}
 .content{
-    display: block;
     border: solid;
     width: 90%;
     margin: auto;
+    height: 1241px;
+    border-color: rgba(255, 228, 196, 0);
+    background-color: white;
 }
+
 
 .div-image-header{
     width: 100%;
@@ -28,43 +38,49 @@ a{
 .p2-header{
     margin-left: 943px;
     margin-top: -11px;
-    color: #2B375D;
+    color: azure;
 }
 
 .menu-content{
     margin-top: 208px;
-    margin-left: 98px;
+    margin-left: 49px;
     font-size: 22px;
     padding: 0px;
+    word-spacing: 20px;
 }
 
 .a-menu{
     font-variant: small-caps;
-    font-size: 30px;
-    color: #8721B3;
+    font-size: 35px;
+    color: #F16974;
+    font-weight: 800;
 }
 .div-book{
     margin-top: 40px;
-    /* border-color: #6F3A21; */
-    border: solid 5px;
+    /* border: solid; */
+    border-color: rgba(255, 255, 255, 0);
     width: 750px;
+    height: 854px;
+    /* margin-right: 25px; */
 }
 
 .div-one-book{
     border: solid 1px;
     width: 748px;
     margin-left: 5px;
-    height: 649px;
+    height: 436px;
+    border-color: rgba(240, 248, 255, 0);
 }
 .div-text{
     border: solid 1px;
     border-color: red;
     width: 490px;
     margin-left: 254px;
+    border-color: rgba(240, 248, 255, 0);
     margin-top: -350px;
 }
 .p-title{
-    font-size: 28px;
+    font-size: 25px;
     margin-top: 0px;
     color: #CC4A54;
     font-weight: bold;
@@ -75,28 +91,29 @@ a{
 }
 
 .span-author{
-    font-size: 18px;
+    font-size: 16px;
     color: #E43838;
     font-weight: bold;
-    padding-right: 60px;
+    padding-right: 92px;
 }
 
 .p-edition-place{
-
+    color: #E43838;
 }
 
 .span-edition-place{
-    font-size: 18px;
+    font-size: 16px;
     color: #E43838;
     font-weight: bold;
     padding-right: 60px;
 }
 .p-description{
-
+    padding: 3px;
+    margin-top: -14px;
 }
 
 .p-quotation{
-
+    font-style: italic;
 }
 .div-image-book{
     //margin-top: -554px;
@@ -105,15 +122,44 @@ a{
 }
 .img-book{
     width: 244px;
-    height: 350px;}
+    height: 378px;
+}
 .a-read{
 
 }
 .p-read{
-    margin-left: 500px;
-    margin-top: 242px;
+    margin-left: 611px;
+    margin-top: -9px;
+    font-size: 18px;
 }
 
-.pages{
 
+.facts{
+    border: solid 1px;
+    width: 367px;
+    margin-left: 770px;
+    margin-top: -571px;
+    position: absolute;
+    border-color: rgba(255, 255, 255, 0);
+}
+
+
+.span-fact{
+    font-size: 25px;
+    color: brown;
+    font-weight: 600;
+}
+.p-fact{
+    text-indent: 16px;
+}
+
+.div-animation{
+    width: 250px;
+}
+
+.img-animation{
+    width: 250px;
+    position: absolute;
+    margin-top: -877px;
+    margin-left: 840px;
 }

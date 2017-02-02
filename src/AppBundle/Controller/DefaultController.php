@@ -23,7 +23,7 @@ class DefaultController extends Controller
 
         $books = $em->getRepository("AdminBundle:Book")->findBookByCategoryId($slug);
         $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate($books, $this->get('request')->query->get('page', 1), 3);
+        $pagination = $paginator->paginate($books, $this->get('request')->query->get('page', 1), 2);
 
         $facts = $em->getRepository("AdminBundle:Fact")->findAll();
         return $this->render("AppBundle:Page:index.html.twig", array(

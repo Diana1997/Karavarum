@@ -8,8 +8,20 @@
 {% endblock %}
 
 {% block body %}
-
     {% for p in paths %}
         <embed src="{{ asset('/uploads/documents/')}}{{ p.path }}" class="bookContent" type="application/pdf"></embed>
     {% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+   {#<script>
+        document.ondragstart = noselect;
+
+        document.onselectstart = noselect;
+
+        document.oncontextmenu = noselect;
+
+        function noselect() {return false;}
+    </script>#}
+
 {% endblock %}

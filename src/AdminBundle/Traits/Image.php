@@ -49,8 +49,9 @@ trait Image
     }
 
     /**
+     * @Assert\NotBlank
      * @Assert\File(
-     *          maxSize="2000000",
+     *          maxSize="20M",
      *          mimeTypes = {
      *              "image/png",
      *              "image/jpeg",
